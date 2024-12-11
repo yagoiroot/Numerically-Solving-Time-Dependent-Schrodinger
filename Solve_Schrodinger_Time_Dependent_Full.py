@@ -41,7 +41,7 @@ def thomas_solve(d, u, l, b):
 
 def solve_schrodinger_time_dependent(psi0, L, dt, t_steps, V_func):
     """
-    Solve the time-dependent Schrödinger equation with a time-dependent potential using Crank-Nicolson.
+    Solve the time-dependent Schrödinger equation with a time-dependent potential using the Crank-Nicolson method.
 
     i d/dt psi = -1/2 d^2/dx^2 psi + V(x,t)*psi
     with psi=0 at x=0,L.
@@ -191,7 +191,7 @@ def V_func(x_points, t):
     #
     V = np.full_like(x_points, barrier_height, dtype=float)
     #
-    # # Now we use a boolean mask to find the points inside the well
+    # # Uses a boolean mask to find the points inside the well
     # Fixed infinite square well, reduces the situation to a time-independent potential case.
     mask = (x_points >= 0) & (x_points <= L)
     # Infinite square well with linearly moving wall
